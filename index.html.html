@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content="Hidden History Mysteries - दुनिया के छिपे हुए इतिहास के रहस्य, अनसुलझे राज़, प्राचीन सभ्यताएँ, Bermuda Triangle, Pyramids और Amazing Facts। Subscribe करें!"/>
+    <meta name="keywords" content="hidden history, रहस्यमयी इतिहास, bermuda triangle, pyramids, great wall, ancient mysteries, history facts, amazing facts"/>
+    <title>Hidden History Mysteries | रहस्यमयी इतिहास की दुनिया</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon"/>
+    
+    <style>
+        :root {
+            --bg: #0a0a0a;
+            --text: #e0e0e0;
+            --accent: #ff0000;
+            --card: #1e1e1e;
+            --border: #333;
+        }
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+        a { color: var(--accent); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+
+        /* Hero */
+        #hero {
+            height: 90vh;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('banner-bg.jpg') center/cover no-repeat;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+        #hero img.logo {
+            width: 150px;
+            margin-bottom: 20px;
+            border-radius: 50%;
+            border: 4px solid var(--accent);
+        }
+        #hero h1 { font-size: 3.5rem; margin-bottom: 10px; }
+        #hero p.tagline { font-size: 1.5rem; margin-bottom: 30px; color: #ccc; }
+        .btn {
+            background: var(--accent);
+            color: white;
+            padding: 14px 40px;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            transition: all 0.3s;
+        }
+        .btn:hover { background: #cc0000; transform: scale(1.05); }
+
+        /* Nav */
+        nav {
+            position: fixed;
+            top: 0; width: 100%;
+            background: rgba(10,10,10,0.9);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 15px 0;
+        }
+        .nav-container {
+            max-width: 1200px; margin: 0 auto;
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 0 20px;
+        }
+        .nav-logo { font-size: 1.6rem; font-weight: bold; color: var(--accent); }
+        .nav-links { display: flex; gap: 30px; }
+        .nav-links a { font-size: 1.1rem; transition: color 0.3s; }
+        .nav-links a:hover { color: var(--accent); }
+        .hamburger { display: none; font-size: 2rem; cursor: pointer; }
+        @media (max-width: 768px) {
+            .nav-links { position: absolute; top: 70px; left: 0; width: 100%; flex-direction: column; background: var(--bg); padding: 20px; display: none; }
+            .nav-links.active { display: flex; }
+            .hamburger { display: block; }
+        }
+
+        /* Sections */
+        section { padding: 80px 20px; max-width: 1200px; margin: 0 auto; }
+        h2 { text-align: center; color: var(--accent); margin-bottom: 40px; font-size: 2.5rem; }
+
+        /* Featured */
+        #featured { text-align: center; }
+        .featured-video { max-width: 800px; margin: 0 auto 30px; }
+        .featured-video iframe { width: 100%; height: 450px; border: none; border-radius: 12px; }
+
+        /* Videos Grid */
+        .video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; }
+        .video-card {
+            background: var(--card); border-radius: 12px; overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s; box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+        }
+        .video-card:hover { transform: translateY(-10px); box-shadow: 0 10px 25px rgba(255,0,0,0.2); }
+        .video-card iframe { width: 100%; height: 180px; border: none; }
+        .video-title { padding: 15px; text-align: center; font-size: 1.1rem; }
+
+        /* Shorts */
+        #shorts .shorts-container { display: flex; overflow-x: auto; gap: 15px; padding-bottom: 20px; scroll-snap-type: x mandatory; }
+        .short-card { flex: 0 0 320px; background: var(--card); border-radius: 12px; overflow: hidden; scroll-snap-align: start; }
+        .short-card iframe { width: 100%; height: 568px; border: none; }
+
+        /* Facts */
+        .facts-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
+        .fact-card { background: var(--card); border-radius: 12px; padding: 20px; text-align: center; transition: transform 0.3s; }
+        .fact-card:hover { transform: scale(1.05); }
+        .fact-card img { width: 100%; height: 180px; object-fit: cover; border-radius: 8px; margin-bottom: 15px; }
+
+        /* Other sections styles same as before */
+        #subscribe { text-align: center; background: linear-gradient(to right, #111, #000); padding: 80px 20px; border-radius: 12px; }
+        .social-links { text-align: center; margin: 40px 0; }
+        .social-links a { font-size: 2rem; margin: 0 15px; transition: color 0.3s; }
+        .social-links a:hover { color: var(--accent); }
+        #contact form { max-width: 600px; margin: 0 auto; }
+        input, textarea { width: 100%; padding: 12px; margin: 10px 0; background: #222; border: 1px solid var(--border); color: white; border-radius: 6px; }
+        button[type="submit"] { background: var(--accent); color: white; border: none; padding: 14px 30px; border-radius: 50px; cursor: pointer; }
+        footer { background: #000; text-align: center; padding: 30px 20px; border-top: 1px solid var(--border); }
+        footer a { margin: 0 10px; }
+
+        @media (max-width: 768px) {
+            #hero h1 { font-size: 2.5rem; }
+            #hero p.tagline { font-size: 1.2rem; }
+            .featured-video iframe { height: 300px; }
+            .short-card iframe { height: 500px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="nav-container">
+            <div class="nav-logo">Hidden History</div>
+            <div class="hamburger" onclick="toggleMenu()">☰</div>
+            <div class="nav-links" id="navLinks">
+                <a href="#hero">Home</a>
+                <a href="#featured">Featured</a>
+                <a href="#videos">Videos</a>
+                <a href="#shorts">Shorts</a>
+                <a href="#facts">Facts</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <section id="hero">
+        <img src="logo.png" alt="Hidden History Mysteries Logo" class="logo"/>
+        <h1>Hidden History Mysteries</h1>
+        <p class="tagline">दुनिया के छिपे हुए रहस्यों की खोज करें 😱🔍</p>
+        <a href="https://www.youtube.com/@HiddenHistory-M?sub_confirmation=1" target="_blank" class="btn">Subscribe Now</a>
+    </section>
+
+    <section id="featured">
+        <h2>Featured Mystery</h2>
+        <div class="featured-video">
+            <iframe src="https://www.youtube.com/embed/o9Hp-LIeggs" allowfullscreen></iframe>
+        </div>
+        <a href="https://www.youtube.com/shorts/o9Hp-LIeggs" target="_blank" class="btn">Watch Now</a>
+    </section>
+
+    <section id="videos">
+        <h2>Latest Videos</h2>
+        <div class="video-grid">
+            <div class="video-card">
+                <iframe src="https://www.youtube.com/embed/UOxBVBwu48o" allowfullscreen></iframe>
+                <div class="video-title">पुराने समय के योद्धा इतने ताकतवर कैसे थे? 😱</div>
+            </div>
+            <div class="video-card">
+                <iframe src="https://www.youtube.com/embed/xYasgeQznl4" allowfullscreen></iframe>
+                <div class="video-title">दुनिया की सबसे लंबी दीवार 😱 | Great Wall of China</div>
+            </div>
+            <div class="video-card">
+                <iframe src="https://www.youtube.com/embed/2RGIluqtisA" allowfullscreen></iframe>
+                <div class="video-title">4500 साल पुराने पिरामिड का रहस्य 😱</div>
+            </div>
+            <div class="video-card">
+                <iframe src="https://www.youtube.com/embed/Bqn94BYzpK4" allowfullscreen></iframe>
+                <div class="video-title">अनसुलझा रहस्य Short (Update Title if Needed)</div>
+            </div>
+            <div class="video-card">
+                <iframe src="https://www.youtube.com/embed/o9Hp-LIeggs" allowfullscreen></iframe>
+                <div class="video-title">The Dark Secret of the Bermuda Triangle 👀</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="shorts">
+        <h2>Latest Shorts</h2>
+        <div class="shorts-container">
+            <div class="short-card"><iframe src="https://www.youtube.com/embed/UOxBVBwu48o" allowfullscreen></iframe></div>
+            <div class="short-card"><iframe src="https://www.youtube.com/embed/xYasgeQznl4" allowfullscreen></iframe></div>
+            <div class="short-card"><iframe src="https://www.youtube.com/embed/2RGIluqtisA" allowfullscreen></iframe></div>
+            <div class="short-card"><iframe src="https://www.youtube.com/embed/Bqn94BYzpK4" allowfullscreen></iframe></div>
+            <div class="short-card"><iframe src="https://www.youtube.com/embed/o9Hp-LIeggs" allowfullscreen></iframe></div>
+        </div>
+    </section>
+
+    <section id="facts">
+        <h2>Hidden History Facts</h2>
+        <div class="facts-grid">
+            <div class="fact-card">
+                <img src="bermuda.jpg" alt="Bermuda Triangle Mystery"/>
+                <h3>Bermuda Triangle</h3>
+                <p>जहाँ जहाज़ और हवाई जहाज़ बिना trace के गायब हो जाते हैं। Flight 19 का 1945 का case famous है।</p>
+            </div>
+            <div class="fact-card">
+                <img src="great-wall.jpg" alt="Great Wall of China"/>
+                <h3>Great Wall of China</h3>
+                <p>दुनिया की सबसे लंबी दीवार (\~21,000 km) – दुश्मनों से बचाव के लिए बनी।</p>
+            </div>
+            <div class="fact-card">
+                <img src="pyramids.jpg" alt="Egypt Pyramids Mystery"/>
+                <h3>Egypt Pyramids</h3>
+                <p>4500 साल पुराने – huge stones कैसे perfectly join हुए, आज भी mystery।</p>
+            </div>
+            <div class="fact-card">
+                <img src="warriors.jpg" alt="Ancient Warriors"/>
+                <h3>Ancient Warriors</h3>
+                <p>Heavy armor, forts, cannons और cavalry – पुराने योद्धा इतने powerful क्यों थे?</p>
+            </div>
+        </div>
+    </section>
+<section id="blog">
+    <h2>Hidden History Blogs</h2>
+    <p style="text-align: center; margin-bottom: 40px;">हमारे latest articles पढ़ें – mysteries की गहराई में जाएँ!</p>
+    <div class="video-grid">  <!-- same grid style reuse करो -->
+        
+        <div class="video-card">  <!-- card style -->
+            <img src="bermuda.jpg" alt="Blog Thumbnail" style="width:100%; height:180px; object-fit:cover;">
+            <div class="video-title">Bermuda Triangle के 5 सबसे डरावने केस</div>
+            <p style="padding: 0 15px 15px; font-size: 0.95rem;">क्या aliens या time warp? पढ़ें details...</p>
+            <a href="blog-bermuda.html" class="btn" style="display:block; margin:15px auto; width:fit-content; padding:10px 20px; font-size:1rem;">Read Full Blog</a>
+        </div>
+
+        <div class="video-card">
+            <img src="pyramids.jpg" alt="Pyramids Blog">
+            <div class="video-title">Egypt Pyramids कैसे बने? अनसुलझी तकनीक</div>
+            <p style="padding: 0 15px 15px; font-size: 0.95rem;">4500 साल पुरानी engineering mystery...</p>
+            <a href="blog-pyramids.html" class="btn" style="display:block; margin:15px auto; width:fit-content; padding:10px 20px; font-size:1rem;">Read Full Blog</a>
+        </div>
+
+        <!-- 2-3 और cards add करो -->
+    </div>
+    <div style="text-align:center; margin-top:40px;">
+        <a href="blog-archive.html" class="btn">All Blogs →</a>
+    </div>
+</section>
+    <section id="about">
+        <h2>About Channel</h2>
+        <p style="max-width:800px; margin:0 auto; text-align:center;">
+            Hidden History Mysteries चैनल पर हम दुनिया के अनसुलझे इतिहास, रहस्यमयी facts, प्राचीन सभ्यताएँ, lost treasures और paranormal stories लाते हैं। 
+            <br><br>
+            Creator: Ganesh Anil Patil | Jalgaon, Maharashtra से | History & Mystery Lover।
+        </p>
+    </section>
+
+    <section id="subscribe">
+        <h2>Join Our Mystery Community</h2>
+        <p style="font-size:1.3rem; margin:20px 0;">नए रहस्यों और facts के लिए subscribe करें और bell दबाएँ!</p>
+        <a href="https://www.youtube.com/@HiddenHistory-M?sub_confirmation=1" target="_blank" class="btn">Subscribe Now</a>
+    </section>
+
+    <div class="social-links">
+        <a href="https://youtube.com/@HiddenHistory-M" target="_blank">YouTube</a>
+        <!-- Instagram, Facebook, Twitter/X links add करो जब बन जाए -->
+        <!-- <a href="#" target="_blank">Instagram</a> etc. -->
+    </div>
+
+    <section id="contact">
+    <h2>Contact Us</h2>
+    <p style="text-align: center; font-size: 1.3rem; margin: 20px 0;">
+        कोई सवाल, business inquiry या collaboration के लिए हमें ईमेल करें:
+    </p>
+    <a href="mailto: ganeshanilpatilp@gmail.com?subject=Hidden%20History%20Website%20Inquiry&body=नमस्ते,%0A%0Aमेरा%20नाम%20...%20है।%0Aमैं%20...%20के%20बारे%20में%20जानना%20चाहता%20हूँ।%0A%0Aधन्यवाद!" 
+       style="display: block; text-align: center; font-size: 1.8rem; color: #ff0000; margin: 30px 0; font-weight: bold;">
+        ganeshanilpatilp@gmail.com
+    </a>
+    <p style="text-align: center; color: #aaa;">
+        क्लिक करने पर आपका email app खुल जाएगा। जल्दी reply करेंगे! 🕵️‍♂️
+    </p>
+</section>
+
+    <footer>
+        <p>© 2025 Hidden History Mysteries | All Rights Reserved</p>
+        <p>
+            <a href="#hero">Home</a> | 
+            <a href="#videos">Videos</a> | 
+            <a href="#about">About</a> | 
+            <a href="#">Privacy Policy</a>
+        </p>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            document.getElementById('navLinks').classList.toggle('active');
+        }
+    </script>
+
+</body>
+</html>
