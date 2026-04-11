@@ -22,18 +22,224 @@
             background: var(--bg);
             color: var(--text);
             line-height: 1.6;
+            scroll-behavior: smooth;
         }
         a { color: var(--accent); text-decoration: none; }
         a:hover { text-decoration: underline; }
 
+        /* Nav */
+        nav {
+            position: fixed;
+            top: 0; width: 100%;
+            background: rgba(10,10,10,0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 15px 0;
+            border-bottom: 1px solid var(--border);
+        }
+        .nav-container {
+            max-width: 1200px; margin: 0 auto;
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 0 20px;
+        }
+        .nav-logo { font-size: 1.6rem; font-weight: bold; color: var(--accent); letter-spacing: 1px; }
+        .nav-links { display: flex; gap: 25px; }
+        .nav-links a { font-size: 1rem; font-weight: 500; transition: color 0.3s; color: #fff; }
+        .nav-links a:hover { color: var(--accent); }
+        .hamburger { display: none; font-size: 2rem; cursor: pointer; color: white; }
+
         /* Hero */
         #hero {
-            height: 90vh;
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('banner-bg.jpg') center/cover no-repeat;
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('banner-bg.jpg') center/cover no-repeat;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+        #hero img.logo {
+            width: 140px;
+            height: 140px;
+            margin-bottom: 20px;
+            border-radius: 50%;
+            border: 4px solid var(--accent);
+            object-fit: cover;
+        }
+        #hero h1 { font-size: clamp(2.5rem, 8vw, 4rem); margin-bottom: 10px; text-transform: uppercase; }
+        #hero p.tagline { font-size: clamp(1.1rem, 4vw, 1.5rem); margin-bottom: 35px; color: #bbb; }
+        
+        .btn {
+            background: var(--accent);
+            color: white;
+            padding: 14px 35px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            transition: 0.3s;
+            display: inline-block;
+            border: none;
+            cursor: pointer;
+        }
+        .btn:hover { background: #cc0000; transform: translateY(-3px); text-decoration: none; box-shadow: 0 5px 15px rgba(255,0,0,0.3); }
+
+        /* Sections */
+        section { padding: 100px 20px; max-width: 1200px; margin: 0 auto; }
+        h2 { text-align: center; color: var(--accent); margin-bottom: 50px; font-size: 2.5rem; position: relative; }
+        h2::after { content: ''; width: 60px; height: 4px; background: var(--accent); position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); }
+
+        /* Featured Video */
+        #featured { text-align: center; background: rgba(255,255,255,0.02); border-radius: 20px; margin-top: 40px; }
+        .featured-video { max-width: 850px; margin: 0 auto 30px; position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.8); }
+        .featured-video iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
+
+        /* Video Grid */
+        .video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .video-card {
+            background: var(--card); border-radius: 15px; overflow: hidden;
+            transition: 0.3s; border: 1px solid #222;
+        }
+        .video-card:hover { transform: translateY(-8px); border-color: var(--accent); }
+        .video-card iframe { width: 100%; aspect-ratio: 16/9; border: none; }
+        .video-title { padding: 15px; font-weight: 600; text-align: center; }
+
+        /* Shorts Slider */
+        .shorts-container { 
+            display: flex; overflow-x: auto; gap: 20px; padding-bottom: 25px; 
+            scrollbar-width: thin; scrollbar-color: var(--accent) #111;
+        }
+        .short-card { 
+            flex: 0 0 280px; background: var(--card); border-radius: 15px; 
+            overflow: hidden; border: 1px solid #222;
+        }
+        .short-card iframe { width: 100%; aspect-ratio: 9/16; border: none; }
+
+        /* Facts */
+        .facts-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; }
+        .fact-card { background: var(--card); border-radius: 15px; padding: 25px; text-align: center; border-bottom: 3px solid transparent; transition: 0.3s; }
+        .fact-card:hover { border-bottom-color: var(--accent); transform: scale(1.02); }
+        .fact-card img { width: 100%; height: 160px; object-fit: cover; border-radius: 10px; margin-bottom: 15px; }
+
+        /* Contact & Footer */
+        #contact { text-align: center; }
+        .email-link { font-size: clamp(1.2rem, 5vw, 2rem); font-weight: bold; color: var(--accent); word-break: break-all; }
+        footer { padding: 50px 20px; text-align: center; background: #000; border-top: 1px solid var(--border); margin-top: 50px; }
+        
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hamburger { display: block; }
+            section { padding: 60px 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="nav-container">
+            <div class="nav-logo">HIDDEN HISTORY</div>
+            <div class="hamburger" onclick="toggleMenu()">☰</div>
+            <div class="nav-links" id="navLinks">
+                <a href="#hero">Home</a>
+                <a href="#featured">Featured</a>
+                <a href="#videos">Videos</a>
+                <a href="#shorts">Shorts</a>
+                <a href="#facts">Facts</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <section id="hero">
+        <img src="logo.png" alt="Logo" class="logo"/>
+        <h1>Hidden History Mysteries</h1>
+        <p class="tagline">दुनिया के छिपे हुए रहस्यों की खोज करें 😱🔍</p>
+        <a href="https://www.youtube.com/@HiddenHistory-M?sub_confirmation=1" target="_blank" class="btn">SUBSCRIBE CHANNEL</a>
+    </section>
+
+    <section id="featured">
+        <h2>Featured Mystery</h2>
+        <div class="featured-video">
+            <iframe src="https://www.youtube-nocookie.com/embed/_DfoPoUG-BM" allowfullscreen></iframe>
+        </div>
+        <div style="text-align:center;">
+            <p style="margin-bottom:20px; font-style:italic;">क्या आप इस रहस्य के पीछे का सच जानते हैं?</p>
+            <a href="https://www.youtube.com/watch?v=_DfoPoUG-BM" target="_blank" class="btn">YouTube पर देखें</a>
+        </div>
+    </section>
+
+    <section id="videos">
+        <h2>Latest Videos</h2>
+        <div class="video-grid">
+            <div class="video-card">
+                <iframe src="https://www.youtube.com/embed/UOxBVBwu48o" allowfullscreen></iframe>
+                <div class="video-title">पुराने समय के योद्धा इतने ताकतवर कैसे थे? ⚔️</div>
+            </div>
+            <div class="video-card">
+                <iframe src="https://www.youtube.com/embed/xYasgeQznl4" allowfullscreen></iframe>
+                <div class="video-title">दुनिया की सबसे लंबी दीवार | Great Wall of China 🧱</div>
+            </div>
+            <div class="video-card">
+                <iframe src="https://www.youtube.com/embed/2RGIluqtisA" allowfullscreen></iframe>
+                <div class="video-title">4500 साल पुराने पिरामिड का रहस्य 🏺</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="shorts">
+        <h2>Latest Shorts 📱</h2>
+        <div class="shorts-container">
+            <div class="short-card"><iframe src="https://www.youtube.com/embed/UOxBVBwu48o" allowfullscreen></iframe></div>
+            <div class="short-card"><iframe src="https://www.youtube.com/embed/o9Hp-LIeggs" allowfullscreen></iframe></div>
+            <div class="short-card"><iframe src="https://www.youtube.com/embed/Bqn94BYzpK4" allowfullscreen></iframe></div>
+            <div class="short-card"><iframe src="https://www.youtube.com/embed/2RGIluqtisA" allowfullscreen></iframe></div>
+        </div>
+        <p style="text-align:center; margin-top:15px; color:#777;">← Scroll left/right to view more →</p>
+    </section>
+
+    <section id="facts">
+        <h2>Amazing History Facts</h2>
+        <div class="facts-grid">
+            <div class="fact-card">
+                <img src="bermuda.jpg" alt="Bermuda">
+                <h3>Bermuda Triangle</h3>
+                <p>जहाँ जहाज़ गायब हो जाते हैं। क्या यह कोई समुद्री दानव है या कुछ और?</p>
+            </div>
+            <div class="fact-card">
+                <img src="pyramids.jpg" alt="Pyramids">
+                <h3>Ancient Pyramids</h3>
+                <p>बिना क्रेन के इतने भारी पत्थर ऊपर कैसे पहुंचे? आज भी एक पहेली है।</p>
+            </div>
+            <div class="fact-card">
+                <img src="great-wall.jpg" alt="Great Wall">
+                <h3>The Great Wall</h3>
+                <p>21,000 किलोमीटर लंबी दीवार जिसे अंतरिक्ष से भी देखा जा सकता है।</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Get In Touch</h2>
+        <p style="margin-bottom:30px;">Collaboration या Business के लिए ईमेल करें:</p>
+        <a href="mailto:ganeshanilpatilp@gmail.com" class="email-link">ganeshanilpatilp@gmail.com</a>
+    </section>
+
+    <footer>
+        <p>© 2026 Hidden History Mysteries | Designed by Ganesh Patil</p>
+        <div style="margin-top:15px;">
+            <a href="https://youtube.com/@HiddenHistory-M" target="_blank">YouTube</a> | 
+            <a href="#hero">Back to Top</a>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const nav = document.getElementById('navLinks');
+            nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
+        }
+    </script>
+</body>
+</html>
             text-align: center;
             padding: 0 20px;
         }
