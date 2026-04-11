@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bermuda Triangle का रहस्य और सच्चाई | Hidden History Blog</title>
+    <style>
+        :root {
+            --bg: #0a0a0a;
+            --text: #e0e0e0;
+            --accent: #ff0000;
+            --card: #1e1e1e;
+            --border: #333;
+        }
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.8;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            background: var(--card);
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid var(--border);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: bold;
+        }
+        h1 {
+            color: var(--accent);
+            font-size: clamp(1.8rem, 5vw, 2.5rem);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .meta-info {
+            text-align: center;
+            color: #888;
+            font-size: 0.9rem;
+            margin-bottom: 30px;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 10px;
+        }
+        .featured-img {
+            width: 100%;
+            height: auto;
+            border-radius: 15px;
+            margin-bottom: 30px;
+        }
+        h2 {
+            color: var(--accent);
+            margin: 30px 0 15px;
+            border-left: 4px solid var(--accent);
+            padding-left: 15px;
+        }
+        h3 {
+            color: #fff;
+            margin: 20px 0 10px;
+        }
+        p { margin-bottom: 15px; font-size: 1.1rem; }
+        ul { margin: 0 0 20px 25px; }
+        li { margin-bottom: 8px; }
+        
+        .highlight-box {
+            background: rgba(255, 0, 0, 0.1);
+            border-left: 5px solid var(--accent);
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 0 10px 10px 0;
+        }
+        .video-embed {
+            margin: 40px 0;
+            text-align: center;
+        }
+        .video-embed iframe {
+            width: 100%;
+            aspect-ratio: 16/9;
+            border-radius: 15px;
+            border: none;
+        }
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            color: #888;
+            font-size: 0.9rem;
+        }
+        @media (max-width: 600px) {
+            .container { padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <a href="index.html" class="back-link">← वापस होमपेज पर</a>
+        
+        <h1>Bermuda Triangle (बरमूडा ट्रायंगल) – रहस्य, तथ्य और सच्चाई</h1>
+        <div class="meta-info">लेखक: Ganesh Patil | दिनांक: 11 अप्रैल, 2026</div>
+
+        <img src="bermuda.jpg" alt="Bermuda Triangle Mystery" class="featured-img">
+
+        <p>बरमूडा ट्रायंगल, जिसे <strong>“डेविल्स ट्रायंगल”</strong> भी कहा जाता है, दुनिया के सबसे रहस्यमयी स्थानों में से एक माना जाता है। यह अटलांटिक महासागर का एक क्षेत्र है जो तीन प्रमुख स्थानों – मियामी (फ्लोरिडा), बरमूडा द्वीप और सैन जुआन (प्यूर्टो रिको) – को जोड़कर एक त्र
