@@ -1,40 +1,158 @@
 <!DOCTYPE html>
 <html lang="hi">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <meta name="description" content="Hidden History Mysteries - दुनिया के छिपे हुए इतिहास के रहस्य।"/>
-    <meta name="keywords" content="hidden history, रहस्यमयी इतिहास, bermuda triangle, ancient mysteries"/>
-    <title>Hidden History Mysteries | Blog & Secrets</title>
-    
-    <style>
-        :root {
-            --bg: #0a0a0a;
-            --text: #e0e0e0;
-            --accent: #ff0000;
-            --card: #1e1e1e;
-            --border: #333;
-        }
-        * { margin:0; padding:0; box-sizing:border-box; }
-        body {
-            font-family: 'Segoe UI', sans-serif;
-            background: var(--bg);
-            color: var(--text);
-            line-height: 1.6;
-            scroll-behavior: smooth;
-        }
-        
-        /* Navigation */
-        nav {
-            position: fixed; top: 0; width: 100%;
-            background: rgba(10,10,10,0.95);
-            backdrop-filter: blur(10px); z-index: 1000;
-            padding: 15px 0; border-bottom: 1px solid var(--border);
-        }
-        .nav-container {
-            max-width: 1200px; margin: 0 auto;
-            display: flex; justify-content: space-between; align-items: center; padding: 0 20px;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Bholenath Vani - रहस्यमयी इतिहास, रोचक तथ्य और अद्भुत कहानियाँ।">
+<meta name="keywords" content="bholenath vani, mysteries, history facts, hindu stories">
+<meta name="robots" content="index, follow">
+
+<title>Bholenath Vani</title>
+
+<style>
+:root {
+--bg:#0a0a0a;
+--text:#e0e0e0;
+--accent:#ff0000;
+--card:#1e1e1e;
+--border:#333;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:sans-serif;background:var(--bg);color:var(--text);}
+
+/* NAV */
+nav{
+position:fixed;top:0;width:100%;
+background:#000;z-index:1000;
+padding:15px;
+}
+.nav-container{
+display:flex;justify-content:space-between;align-items:center;
+max-width:1200px;margin:auto;
+}
+.nav-logo{color:var(--accent);font-weight:bold;}
+.nav-links a{
+color:#fff;margin-left:20px;text-decoration:none;
+}
+
+/* HERO */
+#hero{
+height:100vh;
+display:flex;flex-direction:column;
+justify-content:center;align-items:center;
+text-align:center;padding:20px;
+}
+#hero h1{font-size:2.5rem;}
+#hero p{margin:15px 0;color:#ccc;}
+
+.btn{
+background:var(--accent);
+padding:12px 25px;
+border-radius:30px;
+color:#fff;
+text-decoration:none;
+margin:5px;
+display:inline-block;
+}
+
+/* VIDEOS */
+section{padding:80px 20px;max-width:1200px;margin:auto;}
+h2{text-align:center;margin-bottom:30px;color:var(--accent);}
+
+.video-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:20px;
+}
+.video-card{
+background:var(--card);
+border-radius:10px;
+overflow:hidden;
+}
+.video-card iframe{
+width:100%;aspect-ratio:16/9;
+}
+.video-title{text-align:center;padding:10px;}
+
+/* SHORTS */
+.shorts{
+display:flex;
+overflow-x:auto;
+gap:15px;
+}
+.shorts iframe{
+width:250px;height:450px;
+border:none;
+}
+
+/* FOOTER */
+footer{text-align:center;padding:30px;margin-top:40px;border-top:1px solid var(--border);}
+</style>
+</head>
+
+<body>
+
+<nav>
+<div class="nav-container">
+<div class="nav-logo">BHOLENATH VANI</div>
+<div class="nav-links">
+<a href="#hero">Home</a>
+<a href="#videos">Videos</a>
+<a href="#shorts">Shorts</a>
+</div>
+</div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+<h1>Bholenath Vani</h1>
+<p>🔱 भक्ति, रहस्य और अद्भुत कहानियाँ 🔱</p>
+
+<a href="https://youtube.com/@bholenathvaani-mahakal?sub_confirmation=1" target="_blank" class="btn">
+👉 Subscribe Now
+</a>
+
+<a href="YOUR_AFFILIATE_LINK" target="_blank" class="btn">
+🛒 Buy Recommended Product
+</a>
+</section>
+
+<!-- VIDEOS -->
+<section id="videos">
+<h2>Latest Videos</h2>
+
+<div class="video-grid">
+<div class="video-card">
+<iframe src="https://www.youtube.com/embed/UOxBVBwu48o"></iframe>
+<div class="video-title">महाकाल की शक्ति 🔱</div>
+</div>
+
+<div class="video-card">
+<iframe src="https://www.youtube.com/embed/xYasgeQznl4"></iframe>
+<div class="video-title">प्राचीन रहस्य</div>
+</div>
+</div>
+
+</section>
+
+<!-- SHORTS -->
+<section id="shorts">
+<h2>Shorts</h2>
+
+<div class="shorts">
+<iframe src="https://www.youtube.com/embed/UOxBVBwu48o"></iframe>
+<iframe src="https://www.youtube.com/embed/o9Hp-LIeggs"></iframe>
+<iframe src="https://www.youtube.com/embed/Bqn94BYzpK4"></iframe>
+</div>
+
+</section>
+
+<footer>
+<p>© 2026 Bholenath Vani</p>
+</footer>
+
+</body>
+</html>        }
         .nav-logo { font-size: 1.6rem; font-weight: bold; color: var(--accent); }
         .nav-links a { color: white; text-decoration: none; margin-left: 20px; font-size: 1rem; }
 
